@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire Mon Amour</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            color: #5a3e36;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+        /* Nouveaux effets 3D */
+        
+        .bg-3d-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .floating-rose {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.7;
+            animation: floatRose 15s infinite linear;
+        }
+        
+        .floating-star {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.8;
+            animation: floatStar 20s infinite linear;
+        }
+        
+        .heart-3d {
+            position: absolute;
+            font-size: 35px;
+            color: #e75480;
+            opacity: 0.6;
+            animation: heart3dFloat 25s infinite linear;
+        }
+        
+        .butterfly {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.8;
+            animation: butterflyFloat 18s infinite ease-in-out;
+        }
+        
+        .floating-text {
+            position: absolute;
+            font-size: 16px;
+            color: rgba(139, 69, 19, 0.4);
+            font-style: italic;
+            font-weight: bold;
+            animation: textFloat 30s infinite linear;
+        }
+        
+        @keyframes floatRose {
+            0% {
+                transform: translateY(100vh) translateX(-100px) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(50vh) translateX(50px) rotate(180deg) scale(1.2);
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes floatStar {
+            0% {
+                transform: translateY(100vh) translateX(100px) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            60% {
+                transform: translateY(40vh) translateX(-80px) rotate(240deg) scale(1.5);
+            }
+            80% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-150px) translateX(-100px) rotate(480deg) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes heart3dFloat {
+            0% {
+                transform: translateY(110vh) translateX(-50px) rotateY(0deg) rotateX(0deg) scale(0.7);
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(45vh) translateX(70px) rotateY(180deg) rotateX(180deg) scale(1.3);
+            }
+            85% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-120px) translateX(50px) rotateY(360deg) rotateX(360deg) scale(0.7);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes butterflyFloat {
+            0% {
+                transform: translateY(105vh) translateX(80px) rotate(0deg) scale(0.9);
+                opacity: 0;
+            }
+            12% {
+                opacity: 0.8;
+            }
+            25% {
+                transform: translateY(80vh) translateX(-40px) rotate(45deg) scale(1.1);
+            }
+            50% {
+                transform: translateY(50vh) translateX(60px) rotate(90deg) scale(1.3);
+            }
+            75% {
+                transform: translateY(20vh) translateX(-30px) rotate(135deg) scale(1.1);
+            }
+            88% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) translateX(40px) rotate(180deg) scale(0.9);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes textFloat {
+            0% {
+                transform: translateY(100vh) translateX(-120px) rotate(-5deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            50% {
+                transform: translateY(50vh) translateX(100px) rotate(5deg) scale(1.2);
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-80px) translateX(120px) rotate(-5deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #8b4513;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #a0522d;
+        }
+        
+        .heart {
+            color: #e75480;
+            font-size: 2rem;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .message-section {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .message-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #8b4513;
+            font-size: 2.2rem;
+        }
+        
+        .message-text {
+            font-size: 1.2rem;
+            text-align: justify;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .gallery-item {
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            background: linear-gradient(45deg, #ffafbd, #ffc3a0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+        
+        .memories {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .memories h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #8b4513;
+            font-size: 2.2rem;
+        }
+        
+        .memory-list {
+            list-style: none;
+        }
+        
+        .memory-list li {
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 50px;
+            transition: transform 0.3s ease;
+        }
+        
+        .memory-list li:hover {
+            transform: translateX(10px);
+        }
+        
+        .memory-list li:before {
+            content: "💖";
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+        }
+        
+        .wish-section {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .wish-section h2 {
+            margin-bottom: 30px;
+            color: #8b4513;
+            font-size: 2.2rem;
+        }
+        
+        .wish-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .final-message {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8b4513;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart-float {
+            position: absolute;
+            color: rgba(231, 84, 128, 0.5);
+            font-size: 20px;
+            animation: float 10s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #8b4513;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            .message-section,
+            .memories,
+            .wish-section {
+                padding: 20px;
+            }
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-3d-container" id="bg3d"></div>
+    <div class="floating-hearts" id="hearts-container"></div>
+
+    <div class="container">
+        <header>
+            <h1>Joyeux Anniversaire Salmaaa🦋✨🌸</h1>
+            <div class="subtitle">À la plus merveilleuse fille que j'ai jamais connue</div>
+            <div class="heart">❤️</div>
+        </header>
+
+        <section class="message-section">
+            <h2>Mon Message pour Toi</h2>
+            <p class="message-text">
+                Ma chère, aujourd'hui est un jour spécial, un jour qui célèbre ton existence, cette existence qui a illuminé ma vie d'une manière que je n'aurais jamais imaginée. Tu es la personne la plus incroyable que j'aie jamais rencontrée, et chaque jour à tes côtés
+                est un cadeau que je chéris profondément.
+            </p>
+            <p class="message-text">
+                Ton sourire est comme un rayon de soleil qui perce à travers les nuages les plus sombres, ta voix est une mélodie qui apaise mon âme, et ton regard porte en lui toute la douceur du monde. Tu es bien plus que ce que je mérite, et pourtant tu es là, à mes
+                côtés, faisant de ma vie un rêve éveillé.
+            </p>
+            <p class="message-text">
+                En cet anniversaire, je veux que tu saches à quel point tu es importante pour moi, à quel point tu as transformé mon existence. Tu as apporté de la lumière là où il n'y avait que de l'obscurité, de l'espoir là où régnait le doute, et de l'amour là où
+                mon cœur était vide.
+            </p>
+        </section>
+
+        <section class="memories">
+            <h2>Ce Que Tu Représentes Pour Moi</h2>
+            <ul class="memory-list">
+                <li>Tu es la douceur dans mes journées les plus difficiles</li>
+                <li>Tu es le sourire qui illumine mon monde</li>
+                <li>Tu es la main qui réconforte dans les moments d'incertitude</li>
+                <li>Tu es la voix qui murmure des mots d'encouragement</li>
+                <li>Tu es le cœur qui bat au rythme du mien</li>
+                <li>Tu es le rêve que je ne veux jamais voir se terminer</li>
+                <li>Tu es la meilleur, magnifique, joli, extraordinaire fille que j'ai connu dans toute ma vie.</li>
+            </ul>
+        </section>
+
+        <div class="gallery">
+            <div class="gallery-item">Notre première rencontre</div>
+            <div class="gallery-item">Ce sourire qui fait battre mon cœur</div>
+            <div class="gallery-item">Tes yeux qui disent tant de choses</div>
+            <div class="gallery-item">Nos moments complices</div>
+        </div>
+
+        <section class="wish-section">
+            <h2>Mon Vœu Pour Toi</h2>
+            <p class="wish-text">
+                En ce jour spécial, je forme un vœu : que tu sois toujours aussi rayonnante, aussi merveilleuse, aussi incroyable que tu l'es aujourd'hui. Que la vie te comble de bonheur, de réussite et de toutes les belles choses que tu mérites.
+            </p>
+            <p class="wish-text">
+                Je souhaite que chaque nouvelle année qui s'ajoute à ta vie t'apporte encore plus de joie, de sérénité et d'épanouissement. Que tes rêves les plus fous se réalisent, que tes espoirs les plus chers deviennent réalité.
+            </p>
+            <p class="wish-text">
+                Et surtout, je souhaite avoir le privilège de continuer à partager ces moments avec toi, d'être témoin de ton bonheur et, si tu me le permets, d'y contribuer chaque jour un peu plus.
+            </p>
+        </section>
+
+        <div class="final-message">
+            Je t'aime plus que les mots ne pourront jamais l'exprimer. <br> Joyeux anniversaire Salmaaaa.
+        </div>
+
+        <footer>
+            Créé avec tout mon amour pour toi
+        </footer>
+    </div>
+
+    <script>
+        // Créer des cœurs flottants
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts-container');
+            const heartCount = 30;
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-float');
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                heart.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                heart.style.opacity = Math.random() * 0.5 + 0.3;
+
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        // Créer les éléments 3D romantiques
+        function create3dBackground() {
+            const container = document.getElementById('bg3d');
+
+            // Roses
+            for (let i = 0; i < 8; i++) {
+                const rose = document.createElement('div');
+                rose.classList.add('floating-rose');
+                rose.innerHTML = '🌹';
+                rose.style.left = Math.random() * 100 + 'vw';
+                rose.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(rose);
+            }
+
+            // Étoiles
+            for (let i = 0; i < 12; i++) {
+                const star = document.createElement('div');
+                star.classList.add('floating-star');
+                star.innerHTML = '✨';
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.animationDelay = Math.random() * 8 + 's';
+                container.appendChild(star);
+            }
+
+            // Cœurs 3D
+            for (let i = 0; i < 10; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-3d');
+                heart.innerHTML = '💖';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 10 + 's';
+                container.appendChild(heart);
+            }
+
+            // Papillons
+            for (let i = 0; i < 6; i++) {
+                const butterfly = document.createElement('div');
+                butterfly.classList.add('butterfly');
+                butterfly.innerHTML = '🦋';
+                butterfly.style.left = Math.random() * 100 + 'vw';
+                butterfly.style.animationDelay = Math.random() * 6 + 's';
+                container.appendChild(butterfly);
+            }
+
+            // Textes flottants
+            const romanticTexts = ['Salma', 'Je t\'aime', 'Mon amour', 'Pour toujours', 'Mon cœur', 'Bonheur', 'Éternité'];
+            for (let i = 0; i < 7; i++) {
+                const text = document.createElement('div');
+                text.classList.add('floating-text');
+                text.innerHTML = romanticTexts[i];
+                text.style.left = Math.random() * 100 + 'vw';
+                text.style.animationDelay = Math.random() * 15 + 's';
+                container.appendChild(text);
+            }
+        }
+
+        // Animation de frappe pour le message
+        function typeWriter(element, text, speed) {
+            let i = 0;
+            element.innerHTML = '';
+
+            function typing() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                }
+            }
+
+            typing();
+        }
+
+        // Initialiser les animations lorsque la page est chargée
+        window.onload = function() {
+            createHearts();
+            create3dBackground();
+
+            // Animation de frappe pour le premier paragraphe
+            const firstParagraph = document.querySelector('.message-text');
+            const originalText = firstParagraph.innerHTML;
+            firstParagraph.innerHTML = '';
+
+            setTimeout(() => {
+                typeWriter(firstParagraph, originalText, 30);
+            }, 1000);
+        };
+    </script>
+</body>
+
+</html>
